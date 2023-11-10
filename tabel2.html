@@ -222,7 +222,6 @@
             displayTableData();
         }
 
-
         function searchTable() {
             const searchInput = document.getElementById('search-input').value.toLowerCase();
             const dataTable = document.getElementById('data-table');
@@ -239,6 +238,11 @@
                 row.style.display = 'none';
             }
             });
+        }
+        window.onload = () => {
+            fetchData(); 
+            sortTable(); 
+            displayTableData();
         }
 
         function callPhpScript() {
