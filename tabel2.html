@@ -196,7 +196,8 @@
             const dataTable = document.getElementById('data-table');
             const rows = Array.from(dataTable.getElementsByTagName('tr'));
         
-            rows.shift(); // Remove header
+            // Simpan header
+            const headerRow = rows.shift();
         
             rows.sort((a, b) => {
                 const valueA = a.getElementsByTagName('td')[1].textContent; // Index 2 corresponds to the F_Name column
@@ -206,13 +207,8 @@
             });
         
             dataTable.innerHTML = '';
-            const headerRow = document.createElement('tr');
-            const headerCells = Array.from(rows[0].getElementsByTagName('td'));
-            headerCells.forEach(cell => {
-                const headerCell = document.createElement('th');
-                headerCell.textContent = cell.textContent;
-                headerRow.appendChild(headerCell);
-            });
+        
+            // Tambahkan kembali header
             dataTable.appendChild(headerRow);
         
             rows.forEach(row => {
@@ -221,24 +217,35 @@
         
             displayTableData();
         }
-
+        
         function searchTable() {
             const searchInput = document.getElementById('search-input').value.toLowerCase();
             const dataTable = document.getElementById('data-table');
             const rows = Array.from(dataTable.getElementsByTagName('tr'));
-    
-            rows.shift(); // Hapus header
-    
+        
+            // Simpan header
+            const headerRow = rows.shift();
+        
             rows.forEach(row => {
-            const cells = row.getElementsByTagName('td');
-            const rowText = Array.from(cells).map(cell => cell.textContent).join(' ').toLowerCase();
-            if (rowText.includes(searchInput)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
+                const cells = row.getElementsByTagName('td');
+                const rowText = Array.from(cells).map(cell => cell.textContent).join(' ').toLowerCase();
+                if (rowText.includes(searchInput)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        
+            dataTable.innerHTML = '';
+        
+            // Tambahkan kembali header
+            dataTable.appendChild(headerRow);
+        
+            rows.forEach(row => {
+                dataTable.appendChild(row);
             });
         }
+
         window.onload = () => {
             fetchData(); 
             sortTable(); 
