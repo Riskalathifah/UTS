@@ -3,143 +3,158 @@
 <head>
     <title>Praktikum W9</title>
     <style>
-    body {
-    font-family: Montserrat, sans-serif;
-    font-size: 16px;
-    background-color: #E3D6ED; 
-    text-align: center;
-    }
+        body {
+        font-family: Montserrat, sans-serif;
+        font-size: 16px;
+        background-color: #E3D6ED; 
+        text-align: center;
+        }
 
-    h1 {
-    text-align: center;
-    font-weight: 800;
-    font-size: 36px;
-    color: #825B8C; 
-    }
+        h1 {
+        text-align: center;
+        font-weight: 800;
+        font-size: 36px;
+        color: #825B8C; 
+        }
 
-    label {
-    font-weight: bold;
-    }
+        label {
+        font-weight: bold;
+        }
 
-    #url {
-    font-family: Montserrat, sans-serif;
-    width: 80%;
-    padding: 12px;
-    margin: 10px auto;
-    display: block;
-    background-color: #C9B5DD; 
-    color: #825B8C;
-    border-radius: 12px;
-    border: 3px solid #825B8C;
-    }
+        #text-field {
+        font-family: Montserrat, sans-serif;
+        width: 50%;
+        padding: 12px;
+        margin: 10px auto;
+        display: block;
+        background-color: #d7c7e9; 
+        color: #C9B5DD;
+        border-radius: 12px;
+        border: 3px solid #825B8C;
+        }
 
-    button {
-    font-family: Montserrat, sans-serif;
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
-    padding: 12px 24px;
-    background-color: #825B8C; 
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 12px;
-    }
+        button {
+        font-family: Montserrat, sans-serif;
+        font-weight: bold;
+        display: block;
+        margin: 0 auto;
+        padding: 12px 24px;
+        background-color: #825B8C; 
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 12px;
+        }
 
-    button:hover {
-    background-color: #5B3E5D; 
-    }
+        button:hover {
+        background-color: #5B3E5D; 
+        }
 
-    #myForm {
-    font-family: 'Montserrat', sans-serif;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #C9B5DD;
-    border-radius: 12px;
-    }
+        #newForm {
+        font-family: 'Montserrat', sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #C9B5DD;
+        border-radius: 12px;
+        }
 
-    label {
-    display: block;
-    margin-bottom: 8px;
-    color: #825B8C;
-    }
+        h5{
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        color:#5B3E5D;
+        font-size:larger;
+        }
 
-    input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 2px solid #825B8C;
-    border-radius: 8px;
-    box-sizing: border-box;
-    }
+        label {
+        display: block;
+        margin-bottom: 8px;
+        color:#5B3E5D;
+        }
 
-    input[type="button"] {
-    background-color: #5B3E5D;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 12px;
-    }
+        input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #825B8C;
+        border-radius: 8px;
+        box-sizing: border-box;
+        background-color:#E3D6ED;
+        }
 
-    input[type="button"]:hover {
-    background-color: #825B8C;
-    }
-        
-    #table-container .table-controls-right button {
-    padding: 10px 20px;
-    background-color: #5B3E5D; 
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-left: 10px; 
-    }
+        input[type="button"] {
+        background-color: #5B3E5D;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 12px;
+        width:20%;
+        }
 
-    #table-container .table-controls-right button:hover {
-      background-color: #5B3E5D;
-    }
+        input[type="button"]:hover {
+        background-color: #825B8C;
+        }
+            
+        #table-container .table-controls-right button {
+        padding: 10px 20px;
+        background-color: #5B3E5D; 
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        margin-left: 10px; 
+        }
 
-    table {
-    font-family: Montserrat, sans-serif;
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 12px;
-    border-collapse: collapse;
-    }
+        #table-container .table-controls-right button:hover {
+        background-color: #5B3E5D;
+        }
 
-    th, td, tr {
-    border: 2px solid #825B8C;
-    padding: 10px;
-    text-align: center;
-    }
+        #table-container .table-controls-right input {
+        width: 20%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 2px solid #825B8C;
+        border-radius: 8px;
+        box-sizing: border-box;
+        background-color: #d7c7e9;
+        }
 
-    th {
-    border: 2px solid #825B8C;
-    background-color: #5B3E5D; 
-    color: #fff;
-    }
+        #table-container .table-controls-right span {
+        color:#5B3E5D;
+        font-family: Montserrat, sans-serif;
+        font-weight: bold;
+        }
+
+        table {
+        font-family: Montserrat, sans-serif;
+        width: 100%;
+        margin-top: 10px;
+        border-radius: 12px;
+        border-collapse: collapse;
+        }
+
+        th, td, tr {
+        border: 2px solid #825B8C;
+        padding: 10px;
+        text-align: center;
+        }
+
+        th {
+        border: 2px solid #825B8C;
+        background-color: #5B3E5D; 
+        }
     </style>
 </head>
 <body>
     <h1>Praktikum Week 9</h1>
     <label for="text-field" autocomplete="off">URL Link:</label><br>
     <input type="text" id="text-field" name="URL" placeholder="Masukkan URL Link"><br>
-    <h4> </h4>
     <button onclick="fetchData()">Submit</button><br>
-    <h4> </h4>
-    <div id="table-container">
-      <div class="table-controls">
-        <div class="table-controls-right">
-          <span>Cari: </span>
-          <input type="text" id="search-input" onkeyup="searchTable()" />
-          <button onclick="sortTable(0)">Sort by F_Name</button>
-        </div>
-      </div>
-    </div>
     <form id="newForm">
+        <h5>Isi Data Diri Anda!!!</h5>
         <label for="id">ID:</label>
         <input type="text" id="id" name="id" autocomplete="off" required><br>
         <label for="F_Name">First Name:</label>
@@ -154,6 +169,16 @@
         <input type="text" id="profesi" name="profesi" autocomplete="off" required><br>
         <input type="button" value="Save" onclick="callPhpScript()">
     </form>
+    <h4> </h4>
+    <div id="table-container">
+      <div class="table-controls">
+        <div class="table-controls-right">
+          <span>Cari: </span>
+          <input type="text" id="search-input" onkeyup="searchTable()" placeholder="Search something">
+          <button onclick="sortTable(0)">Sort by F_Name</button>
+        </div>
+      </div>
+    </div>
     <table id="data-table"></table>
     <script>
         function fetchData() { 
