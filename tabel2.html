@@ -216,14 +216,15 @@
 
         function updatePagination() {
             const dataTable = document.getElementById('data-table');
-            const totalEntries = dataTable.getElementsByTagName('tr').length - 1; // Kurangi satu untuk header
+            const totalEntries = dataTable.getElementsByTagName('tr').length - 1;
     
-            const totalPages = Math.ceil(totalEntries / entriesPerPage);
-            const paginationInfo = `Menampilkan ${currentPage} - ${Math.min(currentPage + entriesPerPage - 1, totalEntries)} dari ${totalEntries} entri`;
+            const startIndex = (currentPage - 1) * entriesPerPage + 1;
+            const endIndex = Math.min(startIndex + entriesPerPage - 1, totalEntries);
+            const paginationInfo = `Menampilkan ${startIndex} - ${endIndex} dari ${totalEntries} entri`;
     
             document.getElementById('pagination-info').textContent = paginationInfo;
             document.getElementById('pagination-prev').disabled = currentPage === 1;
-            document.getElementById('pagination-next').disabled = currentPage === totalPages;
+            document.getElementById('pagination-next').disabled = currentPage === Math.ceil(totalEntries / entriesPerPage);
         }
 
         function sortTable(columnIndex) {
