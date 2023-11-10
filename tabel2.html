@@ -134,7 +134,7 @@
         <div class="table-controls-right">
           <span>Cari: </span>
           <input type="text" id="search-input" onkeyup="searchTable()" />
-          <button onclick="sortTable(0)">Sort</button>
+          <button onclick="sortTable(0)">Sort by F_Name</button>
         </div>
       </div>
     </div>
@@ -195,26 +195,19 @@
         function sortTable() {
             const dataTable = document.getElementById('data-table');
             const rows = Array.from(dataTable.getElementsByTagName('tr'));
-        
-            // Simpan header
             const headerRow = rows.shift();
         
             rows.sort((a, b) => {
                 const valueA = a.getElementsByTagName('td')[1].textContent; // Index 2 corresponds to the F_Name column
                 const valueB = b.getElementsByTagName('td')[1].textContent;
-        
                 return valueA.localeCompare(valueB);
             });
-        
             dataTable.innerHTML = '';
-        
-            // Tambahkan kembali header
             dataTable.appendChild(headerRow);
         
             rows.forEach(row => {
                 dataTable.appendChild(row);
             });
-        
             displayTableData();
         }
         
@@ -222,8 +215,6 @@
             const searchInput = document.getElementById('search-input').value.toLowerCase();
             const dataTable = document.getElementById('data-table');
             const rows = Array.from(dataTable.getElementsByTagName('tr'));
-        
-            // Simpan header
             const headerRow = rows.shift();
         
             rows.forEach(row => {
@@ -235,17 +226,12 @@
                     row.style.display = 'none';
                 }
             });
-        
             dataTable.innerHTML = '';
-        
-            // Tambahkan kembali header
             dataTable.appendChild(headerRow);
-        
             rows.forEach(row => {
                 dataTable.appendChild(row);
             });
         }
-
         window.onload = () => {
             fetchData(); 
             sortTable(); 
