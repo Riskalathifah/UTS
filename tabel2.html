@@ -154,11 +154,6 @@
         <input type="button" value="Save" onclick="callPhpScript()">
     </form>
     <table id="data-table"></table>
-    <div id="pagination">
-      <button id="pagination-prev" onclick="changePage(-1);" style="float: left;">Sebelumnya</button>
-      <span id="pagination-info" style="display: inline-block; margin: 0 auto;"></span>
-      <button id="pagination-next" onclick="changePage(1);" style="float: right;">Selanjutnya</button>    
-    </div>
     <script>
         function fetchData() { 
           const urlInput = document.getElementById('text-field').value;
@@ -196,36 +191,6 @@
           xhr.open('GET', urlInput, true);
           xhr.send();
         }
-        let currentPage = 1;
-        const entriesPerPage = 10; 
-
-        function displayTableData() {
-            const startIndex = (currentPage - 1) * entriesPerPage;
-            const endIndex = startIndex + entriesPerPage;
-            const dataTable = document.getElementById('data-table');
-            const data = Array.from(dataTable.getElementsByTagName('tr'));
-
-            data.forEach(row => {
-            row.style.display = 'none';
-            });
-
-        for (let i = startIndex; i < endIndex && i < data.length; i++) {
-          data[i].style.display = '';
-            }
-        }
-
-        function updatePagination() {
-            const dataTable = document.getElementById('data-table');
-            const totalEntries = dataTable.getElementsByTagName('tr').length - 1;
-    
-            const startIndex = (currentPage - 1) * entriesPerPage + 1;
-            const endIndex = Math.min(startIndex + entriesPerPage - 1, totalEntries);
-            const paginationInfo = `Menampilkan ${startIndex} - ${endIndex} dari ${totalEntries} entri`;
-    
-            document.getElementById('pagination-info').textContent = paginationInfo;
-            document.getElementById('pagination-prev').disabled = currentPage === 1;
-            document.getElementById('pagination-next').disabled = currentPage === Math.ceil(totalEntries / entriesPerPage);
-        }
 
         function sortTable(columnIndex) {
           const dataTable = document.getElementById('data-table');
@@ -246,9 +211,7 @@
           });
     
           displayTableData();
-          updatePagination();
         }
-
 
         function searchTable() {
             const searchInput = document.getElementById('search-input').value.toLowerCase();
@@ -268,18 +231,6 @@
             });
         }
 
-        function changePage(offset) {
-            currentPage += offset;
-            if (currentPage < 1) {
-            currentPage = 1;
-            }
-            displayTableData();
-            updatePagination();
-        }
-        window.onload = () => {
-            displayTableData();
-            updatePagination();
-        }
         function callPhpScript() {
             const id = document.getElementById('id').value;
             const F_Name = document.getElementById('F_Name').value;
