@@ -192,26 +192,36 @@
           xhr.send();
         }
 
-        function sortTable(columnIndex) {
-          const dataTable = document.getElementById('data-table');
-          const rows = Array.from(dataTable.getElementsByTagName('tr'));
-    
-          rows.shift(); // Remove header
-    
-          rows.sort((a, b) => {
-            const valueA = a.getElementsByTagName('td')[columnIndex].textContent;
-            const valueB = b.getElementsByTagName('td')[columnIndex].textContent;
-    
-            return valueA.localeCompare(valueB);
-          });
-    
-          dataTable.innerHTML = '';
-          rows.forEach(row => {
-            dataTable.appendChild(row);
-          });
-    
-          displayTableData();
+        function sortTable() {
+            const dataTable = document.getElementById('data-table');
+            const rows = Array.from(dataTable.getElementsByTagName('tr'));
+        
+            rows.shift(); // Remove header
+        
+            rows.sort((a, b) => {
+                const valueA = a.getElementsByTagName('td')[2].textContent; // Index 2 corresponds to the F_Name column
+                const valueB = b.getElementsByTagName('td')[2].textContent;
+        
+                return valueA.localeCompare(valueB);
+            });
+        
+            dataTable.innerHTML = '';
+            const headerRow = document.createElement('tr');
+            const headerCells = Array.from(rows[0].getElementsByTagName('td'));
+            headerCells.forEach(cell => {
+                const headerCell = document.createElement('th');
+                headerCell.textContent = cell.textContent;
+                headerRow.appendChild(headerCell);
+            });
+            dataTable.appendChild(headerRow);
+        
+            rows.forEach(row => {
+                dataTable.appendChild(row);
+            });
+        
+            displayTableData();
         }
+
 
         function searchTable() {
             const searchInput = document.getElementById('search-input').value.toLowerCase();
