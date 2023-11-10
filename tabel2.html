@@ -199,8 +199,8 @@
             rows.shift(); // Remove header
         
             rows.sort((a, b) => {
-                const valueA = a.getElementsByTagName('td')[2].textContent; // Index 2 corresponds to the F_Name column
-                const valueB = b.getElementsByTagName('td')[2].textContent;
+                const valueA = a.getElementsByTagName('td')[1].textContent; // Index 2 corresponds to the F_Name column
+                const valueB = b.getElementsByTagName('td')[1].textContent;
         
                 return valueA.localeCompare(valueB);
             });
