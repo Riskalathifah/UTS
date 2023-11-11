@@ -14,5 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo 'Gagal menyimpan data ke file.';
     }
+    include 'getcsv2jsonq.php';
 }
 ?>
