@@ -26,7 +26,7 @@ function csvToJson($csvUrl) {
     return json_encode($jsonArray);
 }
 
-$csvUrl = 'https://raw.githubusercontent.com/riskalathifah/UTS/main/datapribadi.csv';
+$csvUrl = 'https://riskalathifah.alwaysdata.net/UTS/datapribadi.csv';
 $jsonData = csvToJson($csvUrl);
 
 // Set the content type to JSON
