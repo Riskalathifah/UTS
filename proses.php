@@ -7,13 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email2 = $_POST['email2'];
     $profesi = $_POST['profesi'];
 
-    $file = 'datapribadi.csv';
-    $data = "$id, $F_Name, $L_Name, $email, $email2, $profesi\n";
-    if (file_put_contents($file, $data, FILE_APPEND | LOCK_EX)) {
-        echo 'Data berhasil disimpan.';
-    } else {
-        echo 'Gagal menyimpan data ke file.';
+    $data = array (
+        array($id, $F_Name, $L_Name, $email, $email2, $profesi)
+    );
+    $file = fopen ('datapribadi.csv', 'a');
+    foreach($data as $fields) {
+        fputcsv($file, $fields);
     }
+    fclose($file);
     include 'getcsv2jsonq.php';
 }
 ?>
