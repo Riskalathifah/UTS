@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email2 = $_POST['email2'];
     $profesi = $_POST['profesi'];
 
-    $data = array (
+    $list = array (
         array($id, $F_Name, $L_Name, $email, $email2, $profesi)
     );
     $file = fopen ('datapribadi.csv', 'a');
-    foreach($data as $fields) {
+    foreach($list as $fields) {
         fputcsv($file, $fields);
     }
     fclose($file);
